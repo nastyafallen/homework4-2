@@ -2,7 +2,6 @@ package ru.hogwarts.school.homework41.model;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -24,7 +23,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long id, String name, int age) {
+    public Student(long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -75,7 +74,7 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return age == student.age && id.equals(student.id) && Objects.equals(name, student.name);
+        return id.equals(student.id);
     }
 
     @Override
