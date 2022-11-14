@@ -49,7 +49,7 @@ class Homework41ApplicationTest {
 
         final String name = "test";
         final String color = "random";
-        final long id = 6;
+        final Long id = 6L;
 
         List<Faculty> expected = new ArrayList<>();
         expected.add(faculty);

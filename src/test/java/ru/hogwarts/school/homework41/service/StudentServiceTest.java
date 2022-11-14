@@ -27,7 +27,7 @@ class StudentServiceTest {
 
     private StudentService out;
 
-    Student student1 = new Student(8, "test", 99);
+    Student student1 = new Student(8L, "test", 99);
 
     @BeforeEach
     public void initOut() {
@@ -42,34 +42,30 @@ class StudentServiceTest {
 
     @Test
     void getStudent() {
-        Mockito.when(repositoryMock.save(student1)).thenReturn(student1);
         Mockito.when(repositoryMock.findStudentById(8L)).thenReturn(Optional.of(student1));
-        out.createStudent(student1);
-        assertThat(out.getStudent(8)).isEqualTo(student1);
+        assertThat(out.getStudent(8L)).isEqualTo(student1);
     }
 
     @Test
     void updateStudent() {
         Mockito.when(repositoryMock.save(student1)).thenReturn(student1);
         Mockito.when(repositoryMock.findStudentById(8L)).thenReturn(Optional.of(student1));
-        out.createStudent(student1);
-        Student student2 = new Student(8, "test2", 34);
+        Student student2 = new Student(8L, "test2", 34);
         out.updateStudent(student2);
-        assertThat(out.getStudent(8).getName()).isEqualTo("test2");
-        assertThat(out.getStudent(8).getAge()).isEqualTo(34);
+        assertThat(out.getStudent(8L).getName()).isEqualTo("test2");
+        assertThat(out.getStudent(8L).getAge()).isEqualTo(34);
     }
 
     /*@Test
     void deleteStudent() {
         Mockito.when(repositoryMock.save(student1)).thenReturn(student1);
-        Mockito.when(repositoryMock.findStudentById(1L)).thenReturn(Optional.of(student1));
-        out.createStudent(student1);
-        assertThat(out.getStudent(1).get()).isEqualTo(student1);
-        out.deleteStudent(1);
-        assertThat(out.getStudent(1).isEmpty());
-    }
+        Mockito.when(repositoryMock.findStudentById(8L)).thenReturn(Optional.of(student1));
+        assertThat(out.getStudent(8L)).isEqualTo(student1);
+        out.deleteStudent(8L);
+        assertThat(out.getStudent(8L)).isNull();
+    }*/
 
-    @Test
+    /*@Test
     void getStudentsByAge() {
         List<Student> expected = new ArrayList<>();
         Student student2 = new Student("test2", 34, null, null);

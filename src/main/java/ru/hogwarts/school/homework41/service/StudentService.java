@@ -24,7 +24,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Student getStudent(long id) {
+    public Student getStudent(Long id) {
         return studentRepository.findStudentById(id)
                 .orElseThrow(StudentNotFoundException::new);
     }
@@ -37,7 +37,7 @@ public class StudentService {
         return studentRepository.save(oldStudent);
     }
 
-    public void deleteStudent(long id) {
+    public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }
 
